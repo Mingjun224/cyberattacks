@@ -1,0 +1,100 @@
+.article_8{
+    background: black;
+
+    top: 0px;
+    left: 0px;
+    width: 80%;
+    height: 100%;
+
+    color: rgb(0,255,0);
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 20px;
+
+    position: fixed;
+}
+
+.header{
+    font-weight: bold;
+    font-size: 22px;
+}
+.headline{
+    font-size: 15px;
+    margin-top: 10px;;
+    padding-top: 4px;
+    padding-bottom: 10px;
+    height: 30px;
+
+    position: relative; 
+}
+.one{
+    border-top: 3px white dotted;
+    margin-top: -15px;
+    padding-top: 10px;
+    position:relative;
+}
+.two{
+    padding-top: 10px;
+    position: relative;
+}
+.three{
+    padding-top: 10px;
+    position: relative;
+}
+
+.sidebar{
+    height: 100%;
+    width: 18%;
+    background: black;
+    right: 0px;
+    top: 0px;
+    border-left: 2px solid white;
+
+    color: white;
+    position: fixed;
+    padding: 6px;
+
+    font-size: 13px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.reference{
+    right: 0px;
+    bottom: 300px;
+
+    position: fixed;
+    width: 18%;
+    padding: 6px;
+    
+    border-top: white dotted 2px;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    color: white;
+}
+a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: rgb(0,255,0);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: rgb(0,255,0);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
+  }
