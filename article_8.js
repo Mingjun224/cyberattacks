@@ -21,6 +21,9 @@ window.onload = function() {
     articleBodytwo.textContent = '';
     const bodythreeoriginalText = articleBodythree.textContent;
     articleBodythree.textContent = '';
+
+    const image = document.querySelector('.image');
+image.style.display = 'none';
     
     
     document.addEventListener('keypress', (event) => {
@@ -33,20 +36,39 @@ window.onload = function() {
         articleHeadline.textContent = headlineoriginalText.substring(0, headlineIndex + 1);
         headlineIndex++;
       }
-      if (headlineIndex > 164 && /^[a-zA-Z]$/.test(key)){
+      if (headlineIndex > 166 && /^[a-zA-Z]$/.test(key)){
         articleBodyone.textContent = bodyoneoriginalText.substring(0, bodyoneIndex + 1);
         bodyoneIndex++;
       }
-      if (bodyoneIndex > 169 && /^[a-zA-Z]$/.test(key)){
+      if (bodyoneIndex > 171 && /^[a-zA-Z]$/.test(key)){
         articleBodytwo.textContent = bodytwooriginalText.substring(0, bodytwoIndex + 1);
         bodytwoIndex++;
       }
-      if (bodytwoIndex > 241 && /^[a-zA-Z]$/.test(key)){
+      if (bodytwoIndex > 243 && /^[a-zA-Z]$/.test(key)){
         articleBodythree.textContent = bodythreeoriginalText.substring(0, bodythreeIndex + 1);
         bodythreeIndex++;
       }
+      if (bodythreeIndex > 193 && /^[a-zA-Z]$/.test(key)){
+        image.style.display = 'block';
+      }
     });
     
+    document.addEventListener("keydown", (event) => {
+      if (image.style.display === 'block' && event.key === 'Escape'){
+        image.style.display = 'none';
+      }
+    });
+    
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" && event.ctrlKey) {
+        articleHeader.textContent = headeroriginalText.substring(0, headerIndex + 72);
+        articleHeadline.textContent = headlineoriginalText.substring(0, headlineIndex + 166);
+        articleBodyone.textContent = bodyoneoriginalText.substring(0, bodyoneIndex + 171);
+        articleBodytwo.textContent = bodytwooriginalText.substring(0, bodytwoIndex + 243);
+        articleBodythree.textContent = bodythreeoriginalText.substring(0, bodythreeIndex + 193);
+      }
+    });
+
     var lines = $(".sidebar").html().split("<br>");
     $(".sidebar").empty();
     

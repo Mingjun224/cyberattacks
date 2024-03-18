@@ -22,6 +22,8 @@ window.onload = function() {
     const bodythreeoriginalText = articleBodythree.textContent;
     articleBodythree.textContent = '';
     
+    const image = document.querySelector('.image');
+    image.style.display = 'none';
     
     document.addEventListener('keypress', (event) => {
       const key = event.key;
@@ -33,17 +35,36 @@ window.onload = function() {
         articleHeadline.textContent = headlineoriginalText.substring(0, headlineIndex + 1);
         headlineIndex++;
       }
-      if (headlineIndex > 176 && /^[a-zA-Z]$/.test(key)){
+      if (headlineIndex > 178 && /^[a-zA-Z]$/.test(key)){
         articleBodyone.textContent = bodyoneoriginalText.substring(0, bodyoneIndex + 1);
         bodyoneIndex++;
       }
-      if (bodyoneIndex > 259 && /^[a-zA-Z]$/.test(key)){
+      if (bodyoneIndex > 261 && /^[a-zA-Z]$/.test(key)){
         articleBodytwo.textContent = bodytwooriginalText.substring(0, bodytwoIndex + 1);
         bodytwoIndex++;
       }
-      if (bodytwoIndex > 333 && /^[a-zA-Z]$/.test(key)){
+      if (bodytwoIndex > 335 && /^[a-zA-Z]$/.test(key)){
         articleBodythree.textContent = bodythreeoriginalText.substring(0, bodythreeIndex + 1);
         bodythreeIndex++;
+      }
+      if (bodythreeIndex > 322 && /^[a-zA-Z]$/.test(key)){
+        image.style.display = 'block';
+      }
+    });
+    
+    document.addEventListener("keydown", (event) => {
+      if (image.style.display === 'block' && event.key === 'Escape'){
+        image.style.display = 'none';
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" && event.ctrlKey) {
+        articleHeader.textContent = headeroriginalText.substring(0, headerIndex + 46);
+        articleHeadline.textContent = headlineoriginalText.substring(0, headlineIndex + 178);
+        articleBodyone.textContent = bodyoneoriginalText.substring(0, bodyoneIndex + 261);
+        articleBodytwo.textContent = bodytwooriginalText.substring(0, bodytwoIndex + 335);
+        articleBodythree.textContent = bodythreeoriginalText.substring(0, bodythreeIndex + 322);
       }
     });
     

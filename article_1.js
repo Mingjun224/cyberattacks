@@ -22,6 +22,9 @@ articleBodytwo.textContent = '';
 const bodythreeoriginalText = articleBodythree.textContent;
 articleBodythree.textContent = '';
 
+const image = document.querySelector('.image');
+image.style.display = 'none';
+
 
 document.addEventListener('keypress', (event) => {
   const key = event.key;
@@ -37,15 +40,34 @@ document.addEventListener('keypress', (event) => {
     articleBodyone.textContent = bodyoneoriginalText.substring(0, bodyoneIndex + 1);
     bodyoneIndex++;
   }
-  if (bodyoneIndex > 377 && /^[a-zA-Z]$/.test(key)){
+  if (bodyoneIndex > 381 && /^[a-zA-Z]$/.test(key)){
     articleBodytwo.textContent = bodytwooriginalText.substring(0, bodytwoIndex + 1);
     bodytwoIndex++;
   }
-  if (bodytwoIndex > 155 && /^[a-zA-Z]$/.test(key)){
+  if (bodytwoIndex > 157 && /^[a-zA-Z]$/.test(key)){
     articleBodythree.textContent = bodythreeoriginalText.substring(0, bodythreeIndex + 1);
     bodythreeIndex++;
   }
+  if (bodythreeIndex > 256 && /^[a-zA-Z]$/.test(key)){
+    image.style.display = 'block';
+  }
 });
+
+document.addEventListener("keydown", (event) => {
+  if (image.style.display === 'block' && event.key === 'Escape'){
+    image.style.display = 'none';
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight" && event.ctrlKey) {
+    articleHeader.textContent = headeroriginalText.substring(0, headerIndex + 102);
+    articleHeadline.textContent = headlineoriginalText.substring(0, headlineIndex + 127);
+    articleBodyone.textContent = bodyoneoriginalText.substring(0, bodyoneIndex + 381);
+    articleBodytwo.textContent = bodytwooriginalText.substring(0, bodytwoIndex + 157);
+    articleBodythree.textContent = bodythreeoriginalText.substring(0, bodythreeIndex + 256);
+      }
+    });
 
 var lines = $(".sidebar").html().split("<br>");
 $(".sidebar").empty();

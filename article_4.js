@@ -22,6 +22,8 @@ window.onload = function() {
     const bodythreeoriginalText = articleBodythree.textContent;
     articleBodythree.textContent = '';
     
+    const image = document.querySelector('.image');
+image.style.display = 'none';
     
     document.addEventListener('keypress', (event) => {
       const key = event.key;
@@ -33,17 +35,36 @@ window.onload = function() {
         articleHeadline.textContent = headlineoriginalText.substring(0, headlineIndex + 1);
         headlineIndex++;
       }
-      if (headlineIndex > 205 && /^[a-zA-Z]$/.test(key)){
+      if (headlineIndex > 207 && /^[a-zA-Z]$/.test(key)){
         articleBodyone.textContent = bodyoneoriginalText.substring(0, bodyoneIndex + 1);
         bodyoneIndex++;
       }
-      if (bodyoneIndex > 401 && /^[a-zA-Z]$/.test(key)){
+      if (bodyoneIndex > 402 && /^[a-zA-Z]$/.test(key)){
         articleBodytwo.textContent = bodytwooriginalText.substring(0, bodytwoIndex + 1);
         bodytwoIndex++;
       }
-      if (bodytwoIndex > 477 && /^[a-zA-Z]$/.test(key)){
+      if (bodytwoIndex > 479 && /^[a-zA-Z]$/.test(key)){
         articleBodythree.textContent = bodythreeoriginalText.substring(0, bodythreeIndex + 1);
         bodythreeIndex++;
+      }
+      if (bodythreeIndex > 256 && /^[a-zA-Z]$/.test(key)){
+        image.style.display = 'block';
+      }
+    });
+    
+    document.addEventListener("keydown", (event) => {
+      if (image.style.display === 'block' && event.key === 'Escape'){
+        image.style.display = 'none';
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" && event.ctrlKey) {
+        articleHeader.textContent = headeroriginalText.substring(0, headerIndex + 64);
+        articleHeadline.textContent = headlineoriginalText.substring(0, headlineIndex + 207);
+        articleBodyone.textContent = bodyoneoriginalText.substring(0, bodyoneIndex + 402);
+        articleBodytwo.textContent = bodytwooriginalText.substring(0, bodytwoIndex + 479);
+        articleBodythree.textContent = bodythreeoriginalText.substring(0, bodythreeIndex + 244);
       }
     });
     
